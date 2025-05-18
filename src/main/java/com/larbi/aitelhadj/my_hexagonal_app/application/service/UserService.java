@@ -22,8 +22,10 @@ public class UserService {
         return userRepositoryPort.save(user);
     }
 
-    public User updateUser(User user) {
-        return userRepositoryPort.update(user);
+    public User updateEmailUser(Long id, String email) {
+        User user = userRepositoryPort.findById(id);
+        user.updateEmail(email);
+        return userRepositoryPort.save(user);
     }
 
     public void deleteUser(User user) {

@@ -1,4 +1,4 @@
-package com.larbi.aitelhadj.my_hexagonal_app.adapter.in.web;
+package com.larbi.aitelhadj.my_hexagonal_app.infrastructure.in.controller;
 
 import com.larbi.aitelhadj.my_hexagonal_app.application.service.UserService;
 import com.larbi.aitelhadj.my_hexagonal_app.domain.model.User;
@@ -25,9 +25,13 @@ public class UserController {
         return ResponseEntity.ok(userService.createUser(user));
     }
 
-    @PostMapping("/update")
-    public ResponseEntity<User> update(@RequestBody User user) {
-        return ResponseEntity.ok(userService.updateUser(user));
+    @PostMapping("/updateEmail")
+    public ResponseEntity<?> updateEmail(@RequestParam Long id, @RequestParam String email) {
+        try {
+            return ResponseEntity.ok(userService.updateEmailUser(id, email));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @DeleteMapping("/delete")

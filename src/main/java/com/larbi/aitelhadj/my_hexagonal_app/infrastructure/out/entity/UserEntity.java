@@ -1,4 +1,4 @@
-package com.larbi.aitelhadj.my_hexagonal_app.adapter.out.persistence;
+package com.larbi.aitelhadj.my_hexagonal_app.infrastructure.out.entity;
 
 import jakarta.persistence.Table;
 import lombok.Data;
