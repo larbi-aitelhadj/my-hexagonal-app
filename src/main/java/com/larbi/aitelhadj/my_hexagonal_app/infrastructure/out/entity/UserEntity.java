@@ -1,12 +1,9 @@
 package com.larbi.aitelhadj.my_hexagonal_app.infrastructure.out.entity;
 
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
-import jakarta.persistence.Id;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 
 /**
  * @larbi.aitelhadj
@@ -14,13 +11,13 @@ import jakarta.persistence.GeneratedValue;
  */
 @Data
 @Entity
-@Table(name = "User", schema = "users")
+@Table(name = "user_entity")
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
